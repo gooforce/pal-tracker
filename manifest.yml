@@ -1,5 +1,4 @@
 applications:
-<<<<<<< HEAD
   - name: pal-tracker
     path: build/libs/pal-tracker.jar
     buildpacks:
@@ -17,24 +16,3 @@ applications:
     env:
       WELCOME_MESSAGE: Hello from the review environment
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
-
-=======
-- name: pal-tracker
-  path: build/libs/pal-tracker.jar
-  buildpacks:
-  - java_buildpack_offline
-  stack: cflinuxfs3
-  memory: 1G
-  disk_quota: 1G
-  instances: 1
-  health-check-type: port
-  timeout: 60
-  routes:
-  - route: pal-tracker-${UNIQUE_IDENTIFIER}.${DOMAIN}
-  services:
-  - tracker-database
-  env:
-    WELCOME_MESSAGE: Hello from the review environment
-    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }, memory_calculator: { stack_threads: 250 } }'
-    MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: 'info,health,palTrackerFailure'
->>>>>>> 0297055... Add production tuning parameters to manifest, autoscaling scripts
